@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<!--Daiana Arantes
+    Lixin Feng-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Converter Calculator</title>
+        <script>
+            var celsius;
+            var fahrenheit;
+            var answer;
+            function ToCelsius() {
+                fahrenheit = document.getElementById("getCelsius").value;
+                answer = ((fahrenheit - 32) / 1.8);
+                document.getElementById("answerCelsius").value = answer.toFixed(2);
+
+                if (isNaN(answer)) {
+                    alert("not a number");
+                }
+                else if (answer < -273.15) {
+                    alert("non-physical result");
+                }
+
+                if (answer < '0') {
+                    document.getElementById('answerCelsius').style.color = "blue";
+                }
+                else if (answer > '0') {
+                    document.getElementById('answerCelsius').style.color = "red";
+                }
+                else {
+                    document.getElementById('answerCelsius').style.color = "black";
+                }
+            }
+
+            function ToFahrenheit() {
+                celsius = document.getElementById("getFahrenheit").value;
+                answer = ((celsius * 1.8) + 32);
+                document.getElementById("answerFahrenheit").value = answer.toFixed(2);
+
+                if (isNaN(answer)) {
+                    alert("not a number");
+                }
+
+                 if (answer < '0') {
+                    document.getElementById('answerFahrenheit').style.color = "blue";
+                }
+                else if (answer > '0') {
+                    document.getElementById('answerFahrenheit').style.color = "red";
+                }
+                else {
+                    document.getElementById('answerFahrenheit').style.color = "black";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Converter Calculator</h1>
+        <form>
+            <fieldset>
+                <legend>Celcius to Fahrenheit</legend>
+                <label>Insert temperature in Fahrenheit:</label>
+                <input type="text" id="getCelsius" />
+                <input type="button" onclick="ToCelsius()" value="Convert" id="convertToCelcius">
+                <input type="text" id="answerCelsius" />
+                <label>Celsius</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Fahrenheit to Celcius</legend>
+                <label>Insert temperature in Celcius:</label>
+                <input type="text" id="getFahrenheit" />
+                <input type="button" onclick="ToFahrenheit()" value="Convert" id="convertToFahrenheit">
+                <input type="text" id="answerFahrenheit" />
+                <label>Fahrenheit</label>
+            </fieldset>
+        </form>
+    </body>
+</html>
